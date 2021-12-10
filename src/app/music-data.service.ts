@@ -11,7 +11,7 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class MusicDataService {
 
-  // @Input() favouritesList: Array<any> = [];
+  @Input() favouritesList: Array<any> = [];
 
   constructor(private spotifyToken: SpotifyTokenService,
     private http: HttpClient,) {
@@ -61,24 +61,24 @@ export class MusicDataService {
     }));
   }
 
-  addToFavourites(id: string): Observable<[String]> {
-    // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
-    return this.http.put<any>(`${environment.userAPIBase}/favourites/${id}`, {params:{id: id}} );
-    // }));
-  }
-  // addToFavourites(id: number): boolean {
-  //   // return new Observable<boolean>(observer => {
-  //   if ((id == null || id == undefined) || (this.favouritesList.length >= 50)) {
-  //     // observer.error(false);
-  //     return false;
-  //   } else {
-  //     this.favouritesList.push(id);
-  //     console.log(this.favouritesList)
-  //     // observer.next(true);
-  //     return true;
-  //   }
-  //   // })
+  // addToFavourites(id: string): Observable<[String]> {
+  //   // TODO: make a PUT request to environment.userAPIBase/favourites/:id to add id to favourites
+  //   return this.http.put<any>(`${environment.userAPIBase}/favourites/${id}`, {params:{id: id}} );
+  //   // }));
   // }
+  addToFavourites(id: number): boolean {
+    // return new Observable<boolean>(observer => {
+    if ((id == null || id == undefined) || (this.favouritesList.length >= 50)) {
+      // observer.error(false);
+      return false;
+    } else {
+      this.favouritesList.push(id);
+      console.log(this.favouritesList)
+      // observer.next(true);
+      return true;
+    }
+    // })
+  }
 
   removeFromFavourites(id: string): Observable<any> {
     return this.http.delete<[String]>(`${environment.userAPIBase}/favourites/${id}`).pipe(mergeMap(favouritesArray => {

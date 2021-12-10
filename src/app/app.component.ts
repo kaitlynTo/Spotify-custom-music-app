@@ -7,6 +7,9 @@ import { MusicDataService } from './music-data.service';
 * distributed to other students.
 *
 * Name: Juyoung Park    Student ID: 150155182     Date: 12/1/2021
+* Angular App (Deployed) Link: https://unruffled-leakey-788e3f.netlify.app
+*
+* User API (Heroku) Link: https://intense-garden-14479.herokuapp.com/
 *
 ********************************************************************************/
 import { Component, OnInit } from '@angular/core';
