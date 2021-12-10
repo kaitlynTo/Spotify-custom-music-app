@@ -67,17 +67,17 @@ export class MusicDataService {
   //   // }));
   // }
   addToFavourites(id: number): boolean {
-    // return new Observable<boolean>(observer => {
+    return new Observable<boolean>(observer => {
     if ((id == null || id == undefined) || (this.favouritesList.length >= 50)) {
-      // observer.error(false);
+      observer.error(false);
       return false;
     } else {
       this.favouritesList.push(id);
       console.log(this.favouritesList)
-      // observer.next(true);
+      observer.next(true);
       return true;
     }
-    // })
+    })
   }
 
   removeFromFavourites(id: string): Observable<any> {
