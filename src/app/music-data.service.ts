@@ -66,7 +66,7 @@ export class MusicDataService {
   //   return this.http.put<any>(`${environment.userAPIBase}/favourites/${id}`, {params:{id: id}} );
   //   // }));
   // }
-  addToFavourites(id: number): boolean {
+  addToFavourites(id: number): Observable<boolean> {
     return new Observable<boolean>(observer => {
     if ((id == null || id == undefined) || (this.favouritesList.length >= 50)) {
       observer.error(false);
