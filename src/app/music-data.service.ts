@@ -11,8 +11,6 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class MusicDataService {
 
-  // @Input() favouritesList: Array<any> = [];
-
   constructor(private spotifyToken: SpotifyTokenService,
     private http: HttpClient,) {
   }
@@ -21,7 +19,6 @@ export class MusicDataService {
     return this.spotifyToken.getBearerToken().pipe(mergeMap(token => {
       return this.http.get<any>("https://api.spotify.com/v1/browse/new-releases", { headers: { "Authorization": `Bearer ${token}` } })
     }));
-
   }
 
   getArtistById(id: number): Observable<any> {
